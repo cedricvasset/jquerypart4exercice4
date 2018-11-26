@@ -1,0 +1,15 @@
+input{
+  width: 60%;
+  float: left;
+}
+form{
+width:40%;
+  float: left;
+}
+#result{
+width: 100%;
+color: red;
+text-align: center;
+font-size: 150%;
+padding-top: 5%;
+}

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr" dir="ltr">
+<head>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css">
+  <script src="jquery-3.2.1.js"></script>
+  <title>exercice4part4 JQ</title>
+</head>
+<body>
+<form class="" action="index.html" method="post">
+  <p>Nom<input id="lastname" type="text" name="lastname" value="" /></p>
+  <p>Prénom<input id="firstname" type="text" name="firstname" value="" /></p>
+  <p>Date de naissance<input id="birthday" type="text" placeholder="jj/mm/aaaa" name="birthday" value="" /></p>
+  <p>Lieu de naissance<input id="birthtown" type="text" name="birthtown" value="" /></p>
+  <p>Emploi<input id="job" type="text" name="job" value="" /></p>
+  <p>Société<input id="society" type="text" name="society" value="" /></p>
+</form>
+<button id="button" type="button" name="button">Générer</button>
+<div id="result">
+</div>
+  <script>
+  $(function(){
+$('button').click(function(){
+  var regexname = /^[a-zA-ZâäçéèêëïöúùüæœÁÀÂÄÇÉÈÊËÏÑÖÜÆŒ -]+$/;
+  var regexdate = /^[0-9]{2}\/[0-9]{2}\/[0-9]{4}$/;
+  var lastname = $('#lastname').val();
+  var firstname = $('#firstname').val();
+  var birthday = $('#birthday').val();
+  var birthtown = $('#birthtown').val();
+  var job = $('#job').val();
+  var society = $('#society').val();
+  if((regexname.test(lastname)== true)&&(regexname.test(firstname)==true)&&(regexdate.test(birthday)==true)&&(regexname.test(birthtown)==true)&&(regexname.test(job)==true)){
+    var result= lastname + ' ' + firstname + ' né le ' + birthday + ' à ' + birthtown + ' ' + job + ' chez ' + society;
+  $('#result').append(result);
+}else if (regexname.test(lastname)== false){
+  alert ('le nom n\'est pas un nom valide');
+}else if (regexname.test(firstname)== false){
+  alert ('le prénom n\'est pas un prénom valide');
+}else if (regexdate.test(birthday)== false){
+  alert ('la date de naissance n\'est pas valide');
+}else if (regexname.test(birthtown)== false){
+  alert ('la ville de naissance n\'est pas valide');
+}else if (regexname.test(job)== false){
+  alert ('le métier n\'est pas valide');
+}
+});
+});
+
+  </script>
+</body>
+</html>
